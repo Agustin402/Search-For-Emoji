@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+
+body {
+  font-family: 'Open Sans';
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+main {
+  background: #f44336;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.overlay {
+  background: #f44336;
+  width: 100%;
+  height: 100vh;
+  font-size: 4vh;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: 1.2s forwards 1.8s appear;
+  -webkit-animation: 1.2s forwards 1.8s appear;
+  -moz-animation: 1.2s forwards 1.8s appear;
+  -o-animation: 1.2s forwards 1.8s appear;
+  z-index: 4;
+}
+
+.unavailable {
+  display: none;
+  text-align: center;
+}
+
+.unavailable-overlay {
+  width: 100%;
+  height: 100vh;
+  background: #f44336;
+  font-size: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  animation: 1.2s forwards 1.8s appear;
+  -webkit-animation: 1.2s forwards 1.8s appear;
+  -moz-animation: 1.2s forwards 1.8s appear;
+  -o-animation: 1.2s forwards 1.8s appear;
+  z-index: 7;
+}
+
+.anim {
+  font-size: 4.5vh;
+  position: relative;
+  top: 50px;
+  opacity: 0;
+  animation: 0.8s forwards 0s upwardletters;
+  -webkit-animation: 0.8s forwards 0s upwardletters;
+  -moz-animation: 0.8s forwards 0s upwardletters;
+  -o-animation: 0.8s forwards 0s upwardletters;
+}
+
+.heading .first {
+  animation-delay: 0.2s;
+}
+
+.heading .second {
+  animation-delay: 0.4s;
+}
+
+.heading .third {
+  animation-delay: 0.6s;
+}
+
+.heading .fourth {
+  animation-delay: 0.8s;
+}
+
+.heading .fith {
+  animation-delay: 1s;
+}
+
+main section .input {
+  width: 250px;
+  padding: 10px 15px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 3px solid white;
+  outline: none;
+  font-size: 20px;
+  background: transparent;
+  color: white;
+}
+
+main section .input::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+main section button {
+  width: 70px;
+  color: white;
+  font-size: 20px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background: transparent;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+main section button:hover {
+  background: white;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.emoji {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 10vh;
+  transform: scale(0);
+  color: white;
+}
+
+.emoji.added {
+  animation-name: growEmoji;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation: 0.5s forwards 0s growEmoji;
+  -webkit-animation: 0.5s forwards 0s growEmoji;
+  -moz-animation: 0.5s forwards 0s growEmoji;
+  -o-animation: 0.5s forwards 0s growEmoji;
+}
+
+
+
+@keyframes upwardletters {
+  0% {
+    opacity: 0;
+    top: 50px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
+
+}
+
+@keyframes appear {
+  from {
+    opacity: 1;
+    z-index: 4;
+  }
+  
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@keyframes growEmoji {
+  from {
+    transform: scale(0);
+  }
+  
+  to {
+    transform: scale(1);
+  }
+}
