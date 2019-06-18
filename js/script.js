@@ -50,23 +50,22 @@ const emojiSearch = {
   "watermelon": "🍉"
 }
 
-const body = document.querySelector("section");
 const input = document.querySelector(".input");
 const btn = document.querySelector(".btn");
-const headingEmoji = document.querySelector(".emoji");
-const unavailableOverlay = document.querySelector(".unavailable")
+const placeholderEmoji = document.querySelector(".emoji");
+const unavailableEmojiOverlay = document.querySelector(".unavailable")
 let userInput;
 let emojiAvailable = false;
 
 input.addEventListener("keypress", function(key) {
   emojiAvailable = false;
-  if (headingEmoji.classList.value === "emoji added") {
-    headingEmoji.classList.remove("added");
+  if (placeholderEmoji.classList.value === "emoji added") {
+    placeholderEmoji.classList.remove("added");
     console.log("True");
   }
   
-  if (unavailableOverlay.classList.value === "unavailable unavailable-overlay") {
-    unavailableOverlay.classList.remove("unavailable-overlay");
+  if (unavailableEmojiOverlay.classList.value === "unavailable unavailable-overlay") {
+    unavailableEmojiOverlay.classList.remove("unavailable-overlay");
   }
   
   if (key.keyCode === 13) {
@@ -76,17 +75,17 @@ input.addEventListener("keypress", function(key) {
       for (const emoji in emojiSearch) {
         if (word === emoji) {
           emojiAvailable = true;
-          headingEmoji.innerText = "";
+          placeholderEmoji.innerText = "";
           const faceExpression = emojiSearch[emoji];
-          headingEmoji.append(faceExpression);
-          headingEmoji.classList.add("added");
+          placeholderEmoji.append(faceExpression);
+          placeholderEmoji.classList.add("added");
         }
       }
     });
     input.value = "";
     if (emojiAvailable === false) {
       console.log("Has not been implemented");
-      unavailableOverlay.classList.add("unavailable-overlay");
+      unavailableEmojiOverlay.classList.add("unavailable-overlay");
     }
   }
 
@@ -97,12 +96,12 @@ input.addEventListener("keypress", function(key) {
 
 btn.addEventListener("click", function() {
   emojiAvailable = false;
-  if (headingEmoji.classList.value === "emoji added") {
-    headingEmoji.classList.remove("added");
+  if (placeholderEmoji.classList.value === "emoji added") {
+    placeholderEmoji.classList.remove("added");
     console.log("True");
   }
-  if (unavailableOverlay.classList.value === "unavailable unavailable-overlay") {
-    unavailableOverlay.classList.remove("unavailable-overlay");
+  if (unavailableEmojiOverlay.classList.value === "unavailable unavailable-overlay") {
+    unavailableEmojiOverlay.classList.remove("unavailable-overlay");
   }
   userInput = input.value.toLowerCase();
   userInput = userInput.split(" ");
@@ -111,17 +110,17 @@ btn.addEventListener("click", function() {
     for (const emoji in emojiSearch) {
       if (word === emoji) {
         emojiAvailable = true;
-        headingEmoji.innerText = "";
+        placeholderEmoji.innerText = "";
         const faceExpression = emojiSearch[emoji];
-        headingEmoji.append(faceExpression);
-        headingEmoji.classList.add("added");
+        placeholderEmoji.append(faceExpression);
+        placeholderEmoji.classList.add("added");
       }
     }
   });
   input.value = "";
   if (emojiAvailable === false) {
     console.log("Has not been implemented");
-    unavailableOverlay.classList.add("unavailable-overlay");
+    unavailableEmojiOverlay.classList.add("unavailable-overlay");
   }
 });
 
